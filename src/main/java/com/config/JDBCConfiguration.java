@@ -21,7 +21,7 @@ public class JDBCConfiguration {
 
     @Bean
     public static Connection getConnection() throws DaoException {
-        String connectionURL = "jdbc:mysql://localhost:3306/ProjetTWIC?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+        String connectionURL = "jdbc:h2:tcp://localhost/~/test";
         try (Connection connexion = DriverManager.getConnection(connectionURL,USERNAME,PASSWORD)){
             connexion.setAutoCommit(false);
             return connexion;
