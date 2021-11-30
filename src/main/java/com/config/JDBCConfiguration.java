@@ -10,41 +10,29 @@ import org.springframework.context.annotation.Configuration;
 
 import com.dao.DaoException;
 
+
 @Configuration
 public class JDBCConfiguration {
 
-    @Value("${username}")
-    private String username;
-
+    @Value("${database.user}")
     private static String USERNAME;
+    @Value("${database.password}")
+    private static String PASSWORD;
 
     @Bean
     public static Connection getConnection() throws DaoException {
-        String connectionURL = "jdbc:h2:tcp://localhost/~/test";
-        String user = "sa";
-        String password = "";
-
-        System.out.println("Username is " + USERNAME);
-
-        try {
-            Class.forName("org.h2.Driver");
-        } catch (ClassNotFoundException e2) {
-            throw new DaoException("Impossible de se connecter à la base de données");
-        }
-
-        Connection connexion = null;
-        try {
-            connexion = DriverManager.getConnection(connectionURL, user, password);
+        String connectionURL = "jdbc:mysql://localhost:3306/ProjetTWIC?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+        try (Connection connexion = DriverManager.getConnection(connectionURL,USERNAME,PASSWORD)){
             connexion.setAutoCommit(false);
+            return connexion;
         } catch (SQLException e1) {
             throw new DaoException("Impossible de se connecter à la base de données " + e1.getLocalizedMessage());
         }
 
-        return connexion;
     }
 
-    @Value("${username}")
-    public void setUsername(String username) {
-        JDBCConfiguration.USERNAME = username;
+    @Value("${database.user}")
+    public synchronized void setUserP(String user){
+        JDBCConfiguration.USERNAME = user;
     }
 }
