@@ -10,6 +10,15 @@ import java.util.List;
 
 @Repository
 public class VilleDAOImpl implements VilleDAO {
+
+    private String codeCommuneKey = "Code_commune_INSEE";
+    private String nomKey = "Nom_commune";
+    private String postalKey = "Code_postal";
+    private String libelleKey ="Libelle_acheminement";
+    private String ligneKey ="Ligne_5";
+    private String latitudeKey ="Latitude";
+    private String longitudekey ="Longitude";
+
     @Override
     public List<Ville> getListeVilles() {
         List<Ville> listVilles = new ArrayList<>();
@@ -20,13 +29,13 @@ public class VilleDAOImpl implements VilleDAO {
 
                 while (resultat.next()) {
                     Ville v = new Ville(
-                            resultat.getString("Code_commune_INSEE"),
-                            resultat.getString("Nom_commune"),
-                            resultat.getString("Code_postal"),
-                            resultat.getString("Libelle_acheminement"),
-                            resultat.getString("Ligne_5"),
-                            resultat.getString("Latitude"),
-                            resultat.getString("Longitude")
+                            resultat.getString(codeCommuneKey),
+                            resultat.getString(nomKey),
+                            resultat.getString(postalKey),
+                            resultat.getString(libelleKey),
+                            resultat.getString(ligneKey),
+                            resultat.getString(latitudeKey),
+                            resultat.getString(longitudekey)
                     );
                     listVilles.add(v);
                 }
@@ -73,13 +82,13 @@ public class VilleDAOImpl implements VilleDAO {
 
                 if(resultat.next()) {
                     ville = new Ville(
-                            resultat.getString("Code_commune_INSEE"),
-                            resultat.getString("Nom_Commune"),
-                            resultat.getString("Code_postal"),
-                            resultat.getString("Libelle_acheminement"),
-                            resultat.getString("Ligne_5"),
-                            resultat.getString("Latitude"),
-                            resultat.getString("Longitude")
+                            resultat.getString(codeCommuneKey),
+                            resultat.getString(nomKey),
+                            resultat.getString(postalKey),
+                            resultat.getString(libelleKey),
+                            resultat.getString(ligneKey),
+                            resultat.getString(latitudeKey),
+                            resultat.getString(longitudekey)
                     );
 
                     resultVille = ville;
@@ -109,13 +118,13 @@ public class VilleDAOImpl implements VilleDAO {
 
                 while (resultat.next()) {
                     ville = new Ville(
-                            resultat.getString("Code_commune_INSEE"),
-                            resultat.getString("Nom_Commune"),
-                            resultat.getString("Code_postal"),
-                            resultat.getString("Libelle_acheminement"),
-                            resultat.getString("Ligne_5"),
-                            resultat.getString("Latitude"),
-                            resultat.getString("Longitude")
+                            resultat.getString(codeCommuneKey),
+                            resultat.getString(nomKey),
+                            resultat.getString(postalKey),
+                            resultat.getString(libelleKey),
+                            resultat.getString(ligneKey),
+                            resultat.getString(latitudeKey),
+                            resultat.getString(longitudekey)
                     );
                     villes.add(ville);
                 }
@@ -141,13 +150,13 @@ public class VilleDAOImpl implements VilleDAO {
 
                 while (resultat.next()) {
                     ville = new Ville(
-                            resultat.getString("Code_commune_INSEE"),
-                            resultat.getString("Nom_Commune"),
-                            resultat.getString("Code_postal"),
-                            resultat.getString("Libelle_acheminement"),
-                            resultat.getString("Ligne_5"),
-                            resultat.getString("Latitude"),
-                            resultat.getString("Longitude")
+                            resultat.getString(codeCommuneKey),
+                            resultat.getString(nomKey),
+                            resultat.getString(postalKey),
+                            resultat.getString(libelleKey),
+                            resultat.getString(ligneKey),
+                            resultat.getString(latitudeKey),
+                            resultat.getString(longitudekey)
                     );
                 }
 
