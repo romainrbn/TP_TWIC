@@ -20,15 +20,11 @@ public class JDBCConfiguration {
     private static String PASSWORD;
 
     @Bean
-    public static Connection getConnection() throws DaoException {
+    public static Connection getConnection() throws SQLException {
         String connectionURL = "jdbc:mysql://localhost:3306/ProjetTWIC?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-        try (Connection connexion = DriverManager.getConnection(connectionURL,USERNAME,PASSWORD)){
-            connexion.setAutoCommit(false);
-            return connexion;
-        } catch (SQLException e1) {
-            throw new DaoException("Impossible de se connecter à la base de données " + e1.getLocalizedMessage());
-        }
-
+        Connection connexion = DriverManager.getConnection(connectionURL,USERNAME,PASSWORD);
+        connexion.setAutoCommit(false);
+        return connexion;
     }
 
     @Value("${database.user}")
