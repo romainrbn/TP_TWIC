@@ -3,13 +3,17 @@ package com.dao;
 import com.config.JDBCConfiguration;
 import com.dto.Ville;
 import org.springframework.stereotype.Repository;
-
+import java.util.logging.Level;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Repository
 public class VilleDAOImpl implements VilleDAO {
+
+    private static Logger logger = Logger.getLogger("VilleDAOImpl");
+
     @Override
     public List<Ville> getListeVilles() {
         Statement statement = null;
@@ -37,11 +41,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
         return listVilles;
     }
@@ -64,11 +68,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
         return nom;
     }
@@ -103,11 +107,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
         return resultVille;
     }
@@ -143,11 +147,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
         return villes;
     }
@@ -180,11 +184,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
         return ville;
     }
@@ -210,14 +214,14 @@ public class VilleDAOImpl implements VilleDAO {
                     System.out.println("execute");
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    System.err.println(e.getLocalizedMessage());
+                    logger.log(Level.SEVERE, e.getLocalizedMessage());
                 }
                 connexion.commit();
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
     }
 
@@ -235,14 +239,14 @@ public class VilleDAOImpl implements VilleDAO {
                     System.out.println("execute");
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    System.err.println(e.getLocalizedMessage());
+                    logger.log(Level.SEVERE, e.getLocalizedMessage());
                 }
                 connexion.commit();
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
     }
 
@@ -268,14 +272,14 @@ public class VilleDAOImpl implements VilleDAO {
                     System.out.println("execute");
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    System.err.println(e.getLocalizedMessage());
+                    logger.log(Level.SEVERE, e.getLocalizedMessage());
                 }
                 connexion.commit();
             } catch (SQLException e) {
-                System.err.println(e.getLocalizedMessage());
+                logger.log(Level.SEVERE, e.getLocalizedMessage());
             }
         } catch (DaoException e1) {
-            System.err.println(e1.getLocalizedMessage());
+            logger.log(Level.SEVERE, e1.getLocalizedMessage());
         }
     }
 }
