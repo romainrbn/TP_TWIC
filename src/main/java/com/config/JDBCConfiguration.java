@@ -13,18 +13,18 @@ public class JDBCConfiguration {
 
     @Bean
     public static Connection getConnection() throws DaoException {
-        String connectionURL = "jdbc:mysql://localhost:3306/ProjetTWIC?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-        String user = "root";
-        String pwd = "";
+        String connectionURL = "jdbc:h2:tcp://localhost/~/test";
+        String user = "sa";
+        String password = "";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("org.h2.Driver");
         } catch (ClassNotFoundException e2) {
             throw new DaoException("Impossible de se connecter à la base de données");
         }
 
         Connection connexion = null;
         try {
-            connexion = DriverManager.getConnection(connectionURL,user,pwd);
+            connexion = DriverManager.getConnection(connectionURL, user, password);
             connexion.setAutoCommit(false);
         } catch (SQLException e1) {
             throw new DaoException("Impossible de se connecter à la base de données " + e1.getLocalizedMessage());
