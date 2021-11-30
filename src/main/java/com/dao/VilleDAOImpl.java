@@ -113,11 +113,13 @@ public class VilleDAOImpl implements VilleDAO {
     }
 
     @Override
-    public Ville trouverVilleParCodePostal(String codePostal) {
+    public List<Ville> trouverVilleParCodePostal(String codePostal) {
         Connection connexion;
         Ville ville = null;
         Statement statement = null;
         ResultSet resultat = null;
+
+        List<Ville> villes = new ArrayList<>();
 
         try {
             connexion = JDBCConfiguration.getConnection();
@@ -137,6 +139,7 @@ public class VilleDAOImpl implements VilleDAO {
                             resultat.getString("Latitude"),
                             resultat.getString("Longitude")
                     );
+                    villes.add(ville);
                 }
 
             } catch (SQLException e) {
@@ -146,7 +149,7 @@ public class VilleDAOImpl implements VilleDAO {
         } catch (DaoException e1) {
             e1.printStackTrace();
         }
-        return ville;
+        return villes;
     }
 
     @Override

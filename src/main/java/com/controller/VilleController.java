@@ -31,7 +31,7 @@ public class VilleController {
         return villeBLO.getListeVilles();
     }
 
-    @RequestMapping(value = "/nomsvilles", method = RequestMethod.GET)
+    @RequestMapping(value = "/villes/noms", method = RequestMethod.GET)
     @ResponseBody
     public List<String> appelNomVilles() {
         System.out.println("liste des noms de villes");
@@ -47,12 +47,13 @@ public class VilleController {
     }
 
     @GetMapping(value = "/ville", params = "codePostal")
-    public Ville trouverParCodePostal(@RequestParam String codePostal) {
+    public List<Ville> trouverParCodePostal(@RequestParam String codePostal) {
         System.out.println("ville par code postal");
         System.out.println(codePostal);
         System.out.print(villeBLO.getVilleParCodePostal(codePostal));
         return villeBLO.getVilleParCodePostal(codePostal);
     }
+
     @GetMapping(value = "/ville", params = "nomCommune")
     public Ville trouverParNomCommune(@RequestParam String nomCommune) {
         System.out.println("ville par nom de commune");
@@ -61,21 +62,20 @@ public class VilleController {
         return villeBLO.getVilleParNomCommune(nomCommune);
     }
 
-
     @PostMapping(value = "/ville")
     public void creerUneVille(@RequestBody Ville Ville) {
         System.out.println("ville créée");
         villeBLO.creerUneVille(Ville);
     }
 
-    @PutMapping(value = "/ville/{codeInsee}")
-    public void modifier(@RequestBody Ville ville, @PathVariable("codeInsee") String codeInsee) {
+    @PutMapping(value = "/ville")
+    public void modifier(@RequestBody Ville ville, @RequestParam String codeInsee) {
         System.out.println("ville modifiée");
         villeBLO.modifierUneVille(ville, codeInsee);
     }
 
-    @DeleteMapping(value = "/ville/{codeInsee}")
-    public void supprimer(@PathVariable("codeInsee") String codeInsee) {
+    @DeleteMapping(value = "/ville")
+    public void supprimer(@RequestParam String codeInsee) {
         System.out.println("ville supprimée");
         System.out.println(codeInsee);
         System.out.println(codeInsee);

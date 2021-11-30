@@ -11,7 +11,7 @@ public interface VilleDAO {
 
     Ville trouverVille(Ville ville);
 
-    Ville trouverVilleParCodePostal(String codePostal);
+    List<Ville> trouverVilleParCodePostal(String codePostal);
 
     Ville trouverVilleParNomCommune(String nomCommune);
 

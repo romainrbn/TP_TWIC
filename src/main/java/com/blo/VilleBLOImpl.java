@@ -29,7 +29,7 @@ public class VilleBLOImpl implements VilleBLO {
     }
 
     @Override
-    public Ville getVilleParCodePostal(String codePostal) {
+    public List<Ville> getVilleParCodePostal(String codePostal) {
         return villeDAO.trouverVilleParCodePostal(codePostal);
     }
 

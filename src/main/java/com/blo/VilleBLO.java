@@ -11,7 +11,7 @@ public interface VilleBLO {
 
     Ville trouverVille(Ville ville);
 
-    Ville getVilleParCodePostal(String codePostal);
+    List<Ville> getVilleParCodePostal(String codePostal);
 
     Ville getVilleParNomCommune(String nomCommune);
 
