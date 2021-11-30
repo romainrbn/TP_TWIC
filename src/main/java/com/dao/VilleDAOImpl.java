@@ -37,11 +37,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
         return listVilles;
     }
@@ -64,11 +64,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
         return nom;
     }
@@ -103,11 +103,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
         return resultVille;
     }
@@ -143,11 +143,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
         return villes;
     }
@@ -180,11 +180,11 @@ public class VilleDAOImpl implements VilleDAO {
                 }
 
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
 
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
         return ville;
     }
@@ -210,14 +210,14 @@ public class VilleDAOImpl implements VilleDAO {
                     System.out.println("execute");
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.err.println(e.getLocalizedMessage());
                 }
                 connexion.commit();
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
     }
 
@@ -235,14 +235,14 @@ public class VilleDAOImpl implements VilleDAO {
                     System.out.println("execute");
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.err.println(e.getLocalizedMessage());
                 }
                 connexion.commit();
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
     }
 
@@ -268,14 +268,14 @@ public class VilleDAOImpl implements VilleDAO {
                     System.out.println("execute");
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.err.println(e.getLocalizedMessage());
                 }
                 connexion.commit();
             } catch (SQLException e) {
-                e.printStackTrace();
+                System.err.println(e.getLocalizedMessage());
             }
         } catch (DaoException e1) {
-            e1.printStackTrace();
+            System.err.println(e1.getLocalizedMessage());
         }
     }
 }
